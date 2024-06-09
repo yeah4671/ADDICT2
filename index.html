@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>마우스 마스크와 이미지 배경</title>
+    <title>마우스 따라다니는 이미지</title>
     <style>
         html, body {
             margin: 0;
@@ -13,10 +13,7 @@
         }
 
         body {
-            background-image: url('https://github.com/yeah4671/ADDICT2/blob/2b779176e7ac7d2f1c47b0f0b6a19e822eda802c/Artboard%201%20copy%2011.jpg'); /* 배경 이미지 URL을 여기에 삽입 */
-            background-size: cover; /* 이미지가 화면 전체를 커버하도록 설정 */
-            background-position: center; /* 이미지가 중앙에 위치하도록 설정 */
-            background-repeat: no-repeat; /* 이미지 반복 없음 */
+            background-color: black; /* 배경색 설정 */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -31,12 +28,15 @@
         }
 
         .mask {
-            width: 200px; /* 마스크 크기 */
-            height: 200px;
+            width: 100px; /* 마스크 크기 100x100 */
+            height: 100px;
             position: absolute;
             border-radius: 50%; /* 동그라미 형태 */
+            background-image: url('https://github.com/yeah4671/ADDICT2/blob/2b779176e7ac7d2f1c47b0f0b6a19e822eda802c/Artboard%201%20copy%2011.jpg');
+            background-size: cover; /* 이미지가 마스크 크기에 맞게 조정 */
+            background-position: center; /* 이미지 중앙 조정 */
+            background-repeat: no-repeat; /* 이미지 반복 없음 */
             pointer-events: none; /* 마스크가 마우스 이벤트 방해하지 않도록 설정 */
-            background: rgba(0, 0, 0, 0.7); /* 배경을 약간 투명하게 설정 */
         }
     </style>
 </head>
@@ -48,8 +48,8 @@
     <script>
         const mask = document.querySelector('.mask');
         document.addEventListener('mousemove', function(e) {
-            mask.style.left = `${e.clientX - 100}px`; // 마스크 중심을 마우스 위치로 조정
-            mask.style.top = `${e.clientY - 100}px`;
+            mask.style.left = `${e.clientX - 50}px`; // 마스크 중심을 마우스 위치로 조정
+            mask.style.top = `${e.clientY - 50}px`;
         });
     </script>
 </body>
