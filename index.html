@@ -17,8 +17,8 @@
             height: 100%;
             position: relative;
             overflow: hidden;
-            background-image: url('https://raw.githubusercontent.com/username/repo/branch/filename.jpg'); /* 여기에 실제 이미지 URL 입력 */
-            background-size: cover; /* 'cover' 옵션 누락 수정 */
+            background-image: url('https://raw.githubusercontent.com/yeah4671/ADDICT2/ddfda33aad7903999ff70ec2dd2ce5aeba7e5b6d/Artboard%201%20copy%2011.jpg'); /* Raw 이미지 URL 사용 */
+            background-size: cover;
             background-position: center;
         }
 
@@ -27,8 +27,8 @@
             height: 200px;
             position: absolute;
             border-radius: 50%; /* 원형 마스크 */
-            background-image: url('https://raw.githubusercontent.com/username/repo/branch/filename.jpg'); /* 마스크에 같은 이미지 URL 입력 */
-            background-size: cover; /* 'cover' 옵션 누락 수정 */
+            background-image: url('https://raw.githubusercontent.com/yeah4671/ADDICT2/ddfda33aad7903999ff70ec2dd2ce5aeba7e5b6d/Artboard%201%20copy%2011.jpg'); /* 동일한 Raw 이미지 URL 사용 */
+            background-size: cover;
             mix-blend-mode: screen; /* 배경과 마스크의 이미지가 섞여 보임 */
             pointer-events: none; /* 마스크가 마우스 이벤트 방해하지 않도록 설정 */
         }
@@ -40,7 +40,7 @@
     </div>
     <script>
         const mask = document.querySelector('.mask');
-        document.addEventListener('mousemove', function(e) { // 'mouseover' -> 'mousemove' 변경
+        document.addEventListener('mousemove', function(e) {
             mask.style.left = e.clientX - 100 + 'px';
             mask.style.top = e.clientY - 100 + 'px';
             mask.style.backgroundPosition = `-${e.clientX - 100}px -${e.clientY - 100}px`;
