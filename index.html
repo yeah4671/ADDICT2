@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>마우스 따라다니는 이미지</title>
+    <title>이미지 마우스 마스크</title>
     <style>
         body {
             margin: 0;
@@ -12,44 +12,40 @@
             overflow: hidden;
         }
 
-        body {
-            background-color: black; /* 배경색 설정 */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-        }
-
         .container {
             width: 100%;
             height: 100%;
             position: relative;
             overflow: hidden;
+            background-image: url('https://raw.githubusercontent.com/username/repo/branch/filename.jpg'); /* 여기에 실제 이미지 URL 입력 */
+            background-size: cover;
+            background-position: center;
         }
 
         .mask {
-            width: 100px; /* 마스크 크기 100x100 */
-            height: 100px;
+            width: 200px; /* 마스크 크기 */
+            height: 200px;
             position: absolute;
-            border-radius: 50%; /* 동그라미 형태 */
-            background-image: url('https://raw.githubusercontent.com/username/repo/branch/filename.jpg');
-            background-size: cover; /* 이미지가 마스크 크기에 맞게 조정 */
-            background-position: center; /* 이미지 중앙 조정 */
-            background-repeat: no-repeat; /* 이미지 반복 없음 */
+            border-radius: 50%; /* 원형 마스크 */
+            background-color: black; /* 배경색 설정 */
+            background-image: url('https://raw.githubusercontent.com/username/repo/branch/filename.jpg'); /* 마스크에 같은 이미지 URL 입력 */
+            background-size: cover;
+            mix-blend-mode: screen; /* 배경과 마스크의 이미지가 섞여 보임 */
             pointer-events: none; /* 마스크가 마우스 이벤트 방해하지 않도록 설정 */
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>여기를 보세요!</h1>
         <div class="mask"></div>
     </div>
     <script>
         const mask = document.querySelector('.mask');
         document.addEventListener('mousemove', function(e) {
-            mask.style.left = `${e.clientX - 50}px`; // 마스크 중심을 마우스 위치로 조정
-            mask.style.top = `${e.clientY - 50}px`;
+            // 마스크 위치를 마우스 위치에 따라 조정
+            mask.style.left = e.clientX - 100 + 'px';
+            mask.style.top = e.clientY - 100 + 'px';
+            mask.style.backgroundPosition = `-${e.clientX - 100}px -${e.clientY - 100}px`;
         });
     </script>
 </body>
