@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>마우스 마스크</title>
+    <title>마우스 마스크와 이미지 배경</title>
     <style>
-        body {
+        html, body {
             margin: 0;
             padding: 0;
             height: 100%;
@@ -13,7 +13,10 @@
         }
 
         body {
-            background-color: white;
+            background-image: url('https://github.com/yeah4671/ADDICT2/blob/9653f02b012efea0f845ef3bb89f0efb905e7807/Artboard%201%20copy%2012.pdf'); /* 배경 이미지 URL을 여기에 삽입 */
+            background-size: cover; /* 이미지가 화면 전체를 커버하도록 설정 */
+            background-position: center; /* 이미지가 중앙에 위치하도록 설정 */
+            background-repeat: no-repeat; /* 이미지 반복 없음 */
             display: flex;
             justify-content: center;
             align-items: center;
